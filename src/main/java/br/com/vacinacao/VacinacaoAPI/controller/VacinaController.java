@@ -18,9 +18,12 @@ import br.com.vacinacao.VacinacaoAPI.exception.VacinaException;
 import br.com.vacinacao.VacinacaoAPI.model.Vacina;
 import br.com.vacinacao.VacinacaoAPI.resource.VacinaResource;
 import br.com.vacinacao.VacinacaoAPI.service.VacinaService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value = "/api")
+@Api(value="API REST Vacinas")
 @CrossOrigin(origins = "*")
 public class VacinaController {
 
@@ -28,6 +31,7 @@ public class VacinaController {
 	private VacinaService service;
 
 	@PostMapping(value = "/vacina/pessoa/{id}")
+	@ApiOperation(value="Realiza cadastro de uma vacina e realiza o vículo a  uma pessoa através do ID passado no path da requisição")
 	public ResponseEntity<Vacina> save(@PathVariable("id") Long id, @RequestBody @Valid VacinaResource vacina)
 			throws VacinaException {
 		Vacina newObj = service.cadastro(id, vacina);
@@ -35,6 +39,8 @@ public class VacinaController {
 	}
 
 	@GetMapping(value = "/vacinas")
+	@ApiOperation(value="Retorna lista de vacinas cadastradas")
+
 	public ResponseEntity<List<Vacina>> findAll() {
 		List<Vacina> list = service.listar();
 		return ResponseEntity.ok().body(list);
