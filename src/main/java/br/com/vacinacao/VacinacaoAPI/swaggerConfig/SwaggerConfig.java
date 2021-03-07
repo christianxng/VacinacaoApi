@@ -35,7 +35,7 @@ public class SwaggerConfig {
 
         ApiInfo apiInfo = new ApiInfo(
                 "API REST Controle de Aplicação de Vacinas",
-                "API REST Manipulação de vacinas em Brasileiros.",
+                "API REST Manipulação de vacinas em pessoas.",
                 "1.0",
                 "Terms of Service",
                 new Contact("Christian Rodrigues", "-",
