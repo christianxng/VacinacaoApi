@@ -1,7 +1,5 @@
 package br.com.vacinacao.VacinacaoAPI.exception.error;
 
-import java.util.List;
-
 public class RotaResponse {
 	
 	private  int code;

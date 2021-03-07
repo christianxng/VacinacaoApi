@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import br.com.vacinacao.VacinacaoAPI.exception.error.ErrorObject;
 import br.com.vacinacao.VacinacaoAPI.exception.error.ErrorResponse;
+import br.com.vacinacao.VacinacaoAPI.exception.error.RotaResponse;
 import br.com.vacinacao.VacinacaoAPI.exception.error.StandardError;
 
 @ControllerAdvice
@@ -50,6 +51,7 @@ public class HandlerException extends ResponseEntityExceptionHandler {
 		ErrorResponse errorResponse = getErrorResponse(ex, status, errors);
 		return new ResponseEntity<>(errorResponse, status);
 	}
+
 
 	private ErrorResponse getErrorResponse(MethodArgumentNotValidException ex, HttpStatus status,
 			List<ErrorObject> errors) {
